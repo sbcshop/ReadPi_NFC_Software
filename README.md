@@ -53,7 +53,7 @@ This github provides getting started guide and other working details for ReadPi 
 ### Interfacing Details
 - Pico W and RFID module interfacing
   
-  | Pico W | RFID Module Pin | Function |
+  | Pico W | NFC Module Pin | Function |
   |---|---|---|
   |GP4 | RX | Serial UART connection |
   |GP5 | TX  | Serial UART connection |
