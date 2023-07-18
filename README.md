@@ -39,7 +39,7 @@ This github provides getting started guide and other working details for ReadPi 
 <img src="https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/images/ReadPi_NFC%20PINOUT.jpg">
 
 - (1) 1.3” Display
-- (2) RFID/NFC Module
+- (2) NFC Module
 - (3) Joystick 
 - (4) GPIOs breakout 
 - (5) Battery Connector
