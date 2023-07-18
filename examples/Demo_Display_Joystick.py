@@ -17,7 +17,7 @@ tft = st7789.ST7789(spi,240,240,reset=Pin(12, Pin.OUT),cs=Pin(9, Pin.OUT),dc=Pin
 def displayTest():
     tft.init()
     time.sleep(0.5)#time delay
-    tft.text(font,"2\" LCD SHIELD", 10,40,st7789.YELLOW)# print on tft screen
+    tft.text(font,"1.3\" Display", 10,40,st7789.YELLOW)# print on tft screen
     tft.fill_rect(0, 70, 240,5, st7789.RED)#display red line on tft screen
     
     tft.text(font,"SB Components", 10,120,st7789.WHITE)
