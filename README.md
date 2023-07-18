@@ -107,7 +107,7 @@ This github provides getting started guide and other working details for ReadPi 
    <img src="https://github.com/sbcshop/ArdiPi_Software/blob/main/images/pico_bootmode.gif">
    
    - It will mount as a Mass Storage Device called RPI-RP2.
-   - Drag and drop the MicroPython UF2 - [ReadPi_firmware](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/ReadPi_Firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on ArdiPi.
+   - Drag and drop the MicroPython UF2 - [ReadPi_firmware](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/ReadPi_Firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on ArdiPi.
 
 ### 2. Onboard LED Blink 
    - Download **Thonny IDE** from [Download link](https://thonny.org/) as per your OS and install it.
@@ -117,7 +117,7 @@ This github provides getting started guide and other working details for ReadPi 
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img1.jpg" />
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img2.jpg" />
       
-   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on ReadPi.
+   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on ReadPi.
      
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img3.jpg" />
      
@@ -128,7 +128,7 @@ This github provides getting started guide and other working details for ReadPi 
      
       <img src="https://github.com/sbcshop/3.2_Touchsy_Pico_W_Resistive_Software/blob/main/images/transfer_script_pico.gif" />
    
-      In similar way you can add various python code files to Pico. Also you can try out sample codes given here in [examples folder](https://github.com/sbcshop/ReadPi_RFID_Software/tree/main/examples). 
+      In similar way you can add various python code files to Pico. Also you can try out sample codes given here in [examples folder](https://github.com/sbcshop/ReadPi_NFC_Software/tree/main/examples). 
    
    - But in case if you want to move multiple files at one go, example suppose you are interested to save library files folder into Pico W, below image demonstrate that
      
@@ -138,18 +138,18 @@ This github provides getting started guide and other working details for ReadPi 
 
 
 ### Example Codes
-   Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](https://github.com/sbcshop/ReadPi_RFID_Software/tree/main#3-how-to-move-your-script-on-pico-w-of-readpi), also add related lib files with default name.
-   In [example](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples) folder you will find demo example script code to test onboard components of ReadPi like 
-   - [Buzzer test](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
-   - [SD card demo](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/Demo_sdcard.py) : code to test onboard micro SD card interfacing, [sdcard.py]() lib file is required for the code to run successfully.
-   - [RFID module demo](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/RFIDmodule_demo.py) : testing onboard RFID module , buzzer and display unit of shield. 
+   Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](https://github.com/sbcshop/ReadPi_NFC_Software/tree/main#3-how-to-move-your-script-on-pico-w-of-readpi), also add related lib files with default name.
+   In [example](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples) folder you will find demo example script code to test onboard components of ReadPi like 
+   - [Buzzer test](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
+   - [SD card demo](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/Demo_sdcard.py) : code to test onboard micro SD card interfacing, [sdcard.py]() lib file is required for the code to run successfully.
+   - [NFC module demo](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/NFCmodule_demo.py) : testing onboard NFC module , buzzer and display unit of shield. 
    
    Using this sample code as a guide, you can modify, build, and share codes!!  
    
 ## Resources
-  * [Schematic](https://github.com/sbcshop/ReadPi_RFID_Hardware/blob/main/Design%20Data/Sch%20ReadPi.pdf)
-  * [Hardware Files](https://github.com/sbcshop/ReadPi_RFID_Hardware/tree/main)
-  * [Step File](https://github.com/sbcshop/ReadPi_RFID_Hardware/blob/main/Mechanical%20Data/STEP.step)
+  * [Schematic](https://github.com/sbcshop/ReadPi_NFC_Hardware/blob/main/Design%20Data/Sch%20ReadPi.pdf)
+  * [Hardware Files](https://github.com/sbcshop/ReadPi_NFC_Hardware)
+  * [Step File](https://github.com/sbcshop/ReadPi_NFC_Hardware/blob/main/Mechanical%20Data/STEP.step)
   * [MicroPython getting started for RPi Pico/Pico W](https://docs.micropython.org/en/latest/rp2/quickref.html)
   * [Pico W Getting Started](https://projects.raspberrypi.org/en/projects/get-started-pico-w)
   * [RP2040 Datasheet](https://github.com/sbcshop/HackyPi-Hardware/blob/main/Documents/rp2040-datasheet.pdf)
