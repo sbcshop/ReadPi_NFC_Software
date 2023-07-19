@@ -143,8 +143,63 @@ This github provides getting started guide and other working details for ReadPi 
    - [Buzzer test](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
    - [SD card demo](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/Demo_sdcard.py) : code to test onboard micro SD card interfacing, [sdcard.py](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/sdcard.py) lib file is required for the code to run successfully.
    - [NFC module demo](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/NFCmodule_demo.py) : testing onboard NFC module , buzzer and display unit of shield. For this demo code to test you will have to add lib [nfc.py](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/nfc.py)
+
+  #### Working Description with NFC module:
    
-   Using this sample code as a guide, you can modify, build, and share codes!!  
+  - Basic Communication Protocol: Data Format
+
+    <img src="https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/images/NFC_Communication_protocol.png">
+   
+  - Description of bytes in the data packet: 
+
+     | Field | Length| Description | Remark |
+     |---|---|---|---|
+     |STX | 1  | 0xa8 - ‘Start Byte’ – Standard control bytes. Indicates the the start of a data packet  | |
+     |SEQ1 | 1  | Random Code  | Address bits are reserved for handling device addresses over 255.|
+     |DADD | 1  | Device address is used for multiple machine communication, only address matching can be used for data communication, 0x00 and 0xFF addresses are broadcast addresses  |  |
+     |CMD | 1  | Command Code One byte of the command sent by the upper unit to the lower unit  | |
+     |DATA LENGTH | 2  | Data length includes TIME/STATUS + DATA field  | The high byte comes first, the low byte comes second |
+     |STATUS | 1  | Lower computer return status, one byte | 00 means the command is executed correctly and the others are error codes |
+     |TIME | 1  | Used for specific command time control, timeout processing, other commands (most) the parameter is 0  | |
+     |DATA  [0-N] | 2000  | Command Code One byte of the command sent by the upper unit to the lower unit  | It is used as command parameters when sent by the upper computer and as return data when sent by the lower computer with variable length. The maximum length is 512, and it will not be processed when it is out of range. It will reply directly/show that the command is too long and wait for the next command. |
+     |BCC | 1  | Xor check bit, which verifies data but does not contain STX and ETX |  |
+     |ETX | 1  | 0xa9 - ‘Terminating byte’ – Standard control byte. Indicates the end of a data packet| |
+    
+    SYSTEM COMMANDS examples:
+
+    CMD_GetAddress (0x01)
+    ```
+    Description: Get the device communication address
+    Sending data：0x01
+    Return Data：
+    STATUS     0x00 - OK
+    DATA[0]    Device Address
+
+    ```
+    CMD_SetBaudRate ( 0x03 )
+    ```
+    Description: Set the serial port baud rate
+    Sending data：0x03
+      DATA[0]
+        0x00 – 9600 bps
+        0x01 – 19200 bps
+        0x02 – 38400 bps
+        0x03 – 57600 bps
+        0x04 – 76800 bps
+        0x05 – 115200 bps
+    Return Data：
+        STATUS 0x00 - OK
+    ```
+
+   Checkout [Manual](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/documents/NFC%20Module%20command%20Manual.pdf) for detail understanding about System and Working Commands to send module from Host and corresponding response getting from NFC Module. 
+
+   #### Basic Memory Structure of NFC Tags 
+   The EEPROM memory is organized in pages with 4 bytes per page. NTAG213 variant has 45 pages, NTAG215 variant has 135 pages and NTAG216 variant has 231 pages in total.The functionality of the different memory sections is shown below for NTAG213. 
+
+   <img src="https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/images/memory%20organization%20NTAG213.png">
+   
+  Find more details in [NTAG Datasheet](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/documents/NTAG213_215_216.pdf)
+
    
 ## Resources
   * [Schematic](https://github.com/sbcshop/ReadPi_NFC_Hardware/blob/main/Design%20Data/Sch%20ReadPi.pdf)
@@ -153,6 +208,8 @@ This github provides getting started guide and other working details for ReadPi 
   * [MicroPython getting started for RPi Pico/Pico W](https://docs.micropython.org/en/latest/rp2/quickref.html)
   * [Pico W Getting Started](https://projects.raspberrypi.org/en/projects/get-started-pico-w)
   * [RP2040 Datasheet](https://github.com/sbcshop/HackyPi-Hardware/blob/main/Documents/rp2040-datasheet.pdf)
+  * [NFC Module Command Manual](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/documents/NFC%20Module%20command%20Manual.pdf)
+  * [NTAG213/215/216 Datasheet](https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/documents/NTAG213_215_216.pdf)
 
 
 ## Related Products
