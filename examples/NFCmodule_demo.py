@@ -4,10 +4,8 @@ For the demo to run successfully you need to add lib file into Pico W :
 https://github.com/sbcshop/ReadPi_NFC_Software/blob/main/examples/nfc.py
 
 '''
-from machine import UART,Pin,SPI,PWM
-import time,utime
+from machine import UART,Pin,SPI,PWM, I2C
 from nfc import NFC
-from machine import Pin, I2C, UART,SPI
 import utime,time
 import st7789 #library of TFT display controller uses SPI interface
 import vga1_bold_16x32 as font
