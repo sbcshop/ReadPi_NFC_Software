@@ -1,4 +1,4 @@
-# ReadPi_NPC_Software
+# ReadPi_NFC_Software
 <img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/banner.jpg">
 
 ReadPi 13.56 MHz frequency based NFC Reader/Writer powered by Raspberry Pi Pico W unit. 
