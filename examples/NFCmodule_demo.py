@@ -29,6 +29,7 @@ nfc = NFC(baudrate) #create object
 spi = SPI(1, baudrate=40000000, sck=Pin(10), mosi=Pin(11))
 tft = st7789.ST7789(spi,240,240,reset=Pin(12, Pin.OUT),cs=Pin(9, Pin.OUT),dc=Pin(8, Pin.OUT),backlight=Pin(13, Pin.OUT),rotation=1)#SPI interface for tft screen
 
+tft.init() #initialize display
 tft.fill(0) # clear display
 tft.text(font,"Hello!", 70,100,st7789.CYAN)# print on tft screen
 time.sleep(1) #wait for 1 second
